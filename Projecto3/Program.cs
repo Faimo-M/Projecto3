@@ -10,12 +10,26 @@ namespace Projecto3
         static void Main(string[] args)
         {
             // criar as categorias dos produtos
-            Categoria roupas = new Categoria("Roupas");
-            Categoria eletronicos = new Categoria("Eletronicos");
+            Console.WriteLine("Criar categorias de produtos");
+            Console.Write("Digite o nome da primeira categoria: ");
+            Categoria cat = new Categoria(Console.ReadLine());
 
-            //criar produtos
-            Produto produto = new Produto("cac", roupas, 255);
-            Produto produto1 = new Produto("laptop", eletronicos, 1500);
+            Console.Write("Digite o nome da segunda categoria: ");
+            Categoria cat2 = new Categoria(Console.ReadLine());
+
+            // Criar produtos e associá-los às categorias criadas
+            Console.WriteLine("Criar produtos para as categorias criadas");
+
+            Console.WriteLine("Digite o preço do primeiro produto: ");
+            Console.Write("Digite o nome do primeiro produto: ");
+            double preco1 = double.Parse(Console.ReadLine());
+            
+            Produto produto = new Produto(Console.ReadLine(), cat, preco1);
+
+            Console.WriteLine("Digite o preço do segundo produto: ");
+            Console.Write("Digite o nome do segundo produto: ");
+           double preco2 = double.Parse(Console.ReadLine());
+            Produto produto1 = new Produto(Console.ReadLine(), cat2, preco2);
 
             //adicionar produtos ao estoque
 
@@ -40,8 +54,8 @@ namespace Projecto3
             }
 
             //pesquiar por categoria
-            Console.WriteLine("prodtudos da categoria roupas");
-            List<Produto> roupasEncontradas = estoque.BuscarPorCategoria("roupas");
+            Console.WriteLine("por favor digite o nome da categoria para exibir os produtos da categoria");
+            List<Produto> roupasEncontradas = estoque.BuscarPorCategoria(Console.ReadLine());
             foreach (Produto p in roupasEncontradas)
             {
                 Console.WriteLine($"Nome: {p.Nome} \npreco: {p.Preco}");

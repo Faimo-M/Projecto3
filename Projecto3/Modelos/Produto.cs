@@ -8,7 +8,7 @@ namespace Ficha3.Modelos
 {
     public class Produto
     {
-        public string Nome {  get; set; }
+        public string Nome { get; set; }
         public Categoria Categoria { get; set; }
         public double Preco { get; set; }
 
@@ -17,6 +17,14 @@ namespace Ficha3.Modelos
             Nome = nome;
             Categoria = categoria;
             Preco = preco;
+        }
+
+        
+
+
+        public override string ToString()
+        {
+            return $"Nome: {Nome}, Categoria: {Categoria.Nome}, Preco: {Preco}";
         }
     }
 }
